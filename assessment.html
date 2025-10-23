@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness App - Assessment Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.ico" alt="Wellio Logo" class="logo-icon">
+        Wellio
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Multi-Step Form -->
+<section class="assessment-section">
+  <h1>Health Assessment</h1>
+  <form id="assessmentForm">
+    
+    <!-- Step 1: Basic Info -->
+    <fieldset class="step active">
+      <legend>Basic Information</legend>
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" placeholder="Enter your age" required>
+
+      <div class="form-navigation">
+        <button type="button" class="next-btn">Next</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 2: Daily Habits -->
+    <fieldset class="step">
+      <legend>Daily Habits</legend>
+
+      <label>Do you have your breakfast everyday without skipping?</label><br>
+      <label><input type="radio" name="breakfast" value="yes" required> Yes</label>
+      <label><input type="radio" name="breakfast" value="no"> No</label>
+
+      <div class="form-navigation">
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 3: Mind & Well-being -->
+    <fieldset class="step">
+      <legend>Mind & Well-being</legend>
+
+      <label>Are you happy with your current weight / health?</label><br>
+      <label><input type="radio" name="satisfaction" value="yes" required> Yes</label>
+      <label><input type="radio" name="satisfaction" value="no"> No</label>
+
+      <div class="form-navigation">
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 4: Health Self-Rating -->
+    <fieldset class="step">
+      <legend>Health Self-Rating</legend>
+
+      <label for="selfRating">Rate your overall health (1–10): 
+        <span id="ratingValue">5</span>
+      </label><br>
+      <input type="range" id="selfRating" name="selfRating" min="1" max="10" value="5">
+
+      <div class="form-navigation">
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 5: Body Composition -->
+    <fieldset class="step">
+      <legend>Body Composition</legend>
+
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" required>
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <button type="button" class="calc-btn" id="calcComposition">Calculate</button>
+
+      <div id="compositionResults">
+        <p><strong>BMI:</strong> <span id="bmiResult">–</span></p>
+        <p><strong>Body Fat %:</strong> <span id="bodyFatResult">–</span></p>
+        <p><strong>Visceral Fat Level:</strong> <span id="visceralResult">–</span></p>
+      </div>
+
+      <div class="form-navigation">
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </fieldset>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </form>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>

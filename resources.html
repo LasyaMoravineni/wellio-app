@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness App - Resources Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.ico" alt="Wellio Logo" class="logo-icon">
+        Wellio
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Resources Section -->
+  <section class="resources-hero">
+    
+    <h1>Browse Resources</h1>
+    <p class="resources-subtitle">
+      We provide tips and resources from industry experts. For real.
+    </p>
+
+    <!-- Filter Chips -->
+    <div class="filter-chips">
+      <span class="chip active" data-category="all">All</span>
+      <span class="chip" data-category="nutrition">Nutrition & Diet</span>
+      <span class="chip" data-category="fitness">Fitness & Exercise</span>
+      <span class="chip" data-category="mental">Mental Wellness</span>
+      <span class="chip" data-category="sleep">Sleep & Recovery</span>
+    </div>
+  </section>
+
+  <!-- Resource Cards -->
+  <section class="resources-grid">
+    <!-- Nutrition -->
+    <article class="resource-card" data-category="nutrition">
+      <img src="assets/healthy-eating.jpg" alt="Healthy Eating">
+      <div class="resource-content">
+        <h3>Healthy Eating: Balance & Smart Choices</h3>
+        <p>Discover effective strategies to improve your daily meals, balance nutrients, and boost energy.</p>
+        <div class="meta">
+          <img src="assets/avatar1.jpg" alt="Author">
+          <span>Bessie Cooper · Nutritionist</span>
+          <span class="date">📅 Jan 06, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card" data-category="nutrition">
+      <img src="assets/superfoods.jpeg" alt="Superfoods">
+      <div class="resource-content">
+        <h3>10 Superfoods to Add to Your Diet</h3>
+        <p>Boost your immunity and overall wellness with these nutrient-packed superfoods.</p>
+        <div class="meta">
+          <img src="assets/avatar2.jpg" alt="Author">
+          <span>Devon Lane · Health Coach</span>
+          <span class="date">📅 Jan 12, 2024</span>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="resource-card" data-category="nutrition">
+      <img src="assets/hydration.jpg" alt="Hydration">
+      <div class="resource-content">
+        <h3>The Power of Hydration</h3>
+        <p>Learn how staying hydrated impacts energy, skin health, and metabolism.</p>
+        <div class="meta">
+          <img src="assets/avatar1.jpg" alt="Author">
+          <span>Eleanor Pena · Dietitian</span>
+          <span class="date">📅 Jan 20, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Fitness -->
+    <article class="resource-card" data-category="fitness">
+      <img src="assets/fitness-routines.webp" alt="Exercise Guide">
+      <div class="resource-content">
+        <h3>Top 10 Fitness Routines to Stay Active</h3>
+        <p>Simple yet effective workouts to build strength, stay flexible, and maintain overall wellness.</p>
+        <div class="meta">
+          <img src="assets/avatar2.jpg" alt="Author">
+          <span>Wade Warren · Fitness Coach</span>
+          <span class="date">📅 Jan 08, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card" data-category="fitness">
+      <img src="assets/yoga.jpg" alt="Yoga">
+      <div class="resource-content">
+        <h3>Yoga for Stress Relief</h3>
+        <p>Discover how yoga helps improve flexibility, focus, and relaxation.</p>
+        <div class="meta">
+          <img src="assets/avatar1.jpg" alt="Author">
+          <span>Jenny Wilson · Yoga Instructor</span>
+          <span class="date">📅 Jan 15, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card" data-category="fitness">
+      <img src="assets/strength-training.webp" alt="Strength Training">
+      <div class="resource-content">
+        <h3>Beginner’s Guide to Strength Training</h3>
+        <p>Build strength and confidence with this step-by-step beginner’s plan.</p>
+        <div class="meta">
+          <img src="assets/avatar2.jpg" alt="Author">
+          <span>Guy Hawkins · Trainer</span>
+          <span class="date">📅 Jan 22, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Mental Wellness -->
+    <article class="resource-card" data-category="mental">
+      <img src="assets/mindfulness.jpg" alt="Mindfulness">
+      <div class="resource-content">
+        <h3>Mindfulness Practices for Daily Life</h3>
+        <p>Practical tips to stay present, reduce stress, and boost mental clarity.</p>
+        <div class="meta">
+          <img src="assets/avatar1.jpg" alt="Author">
+          <span>Leslie Alexander · Psychologist</span>
+          <span class="date">📅 Jan 05, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card" data-category="mental">
+      <img src="assets/stress.webp" alt="Stress Management">
+      <div class="resource-content">
+        <h3>Effective Stress Management Techniques</h3>
+        <p>Learn science-backed ways to reduce stress and improve focus.</p>
+        <div class="meta">
+          <img src="assets/avatar2.jpg" alt="Author">
+          <span>Jacob Jones · Therapist</span>
+          <span class="date">📅 Jan 18, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card" data-category="mental">
+      <img src="assets/habits.webp" alt="Positive Habits">
+      <div class="resource-content">
+        <h3>How to Build Positive Daily Habits</h3>
+        <p>Replace bad habits with good ones to improve your mental well-being.</p>
+        <div class="meta">
+          <img src="assets/avatar1.jpg" alt="Author">
+          <span>Arlene McCoy · Life Coach</span>
+          <span class="date">📅 Jan 23, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Sleep -->
+    <article class="resource-card" data-category="sleep">
+      <img src="assets/sleep-hygiene.jpg" alt="Sleep Hygiene">
+      <div class="resource-content">
+        <h3>Sleep Hygiene: Better Rest Every Night</h3>
+        <p>Practical tips to improve sleep quality and wake up refreshed.</p>
+        <div class="meta">
+          <img src="assets/avatar1.jpg" alt="Author">
+          <span>Kristin Watson · Sleep Specialist</span>
+          <span class="date">📅 Jan 09, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card" data-category="sleep">
+      <img src="assets/bedtime.jpg" alt="Bedtime Routine">
+      <div class="resource-content">
+        <h3>The Perfect Bedtime Routine</h3>
+        <p>Wind down effectively with a nightly routine for better sleep.</p>
+        <div class="meta">
+          <img src="assets/avatar1.jpg" alt="Author">
+          <span>Bella Watson · Wellness Coach</span>
+          <span class="date">📅 Jan 14, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card" data-category="sleep">
+      <img src="assets/naps.jpg" alt="Power Naps">
+      <div class="resource-content">
+        <h3>The Science of Power Naps</h3>
+        <p>Short naps can recharge your brain and boost productivity—learn how.</p>
+        <div class="meta">
+          <img src="assets/avatar2.jpg" alt="Author">
+          <span>Cody Fisher · Researcher</span>
+          <span class="date">📅 Jan 25, 2024</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

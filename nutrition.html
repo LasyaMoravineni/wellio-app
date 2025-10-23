@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.ico" alt="Wellio Logo" class="logo-icon">
+        Wellio
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div class="nutrition-page">
+      <div class="nutrition-header">
+          <h1>Nutrition Profile</h1>
+      <p class="nutrition-subtitle">Fuel your body right with our personalized nutrition planner!</p>
+      </div>
+    
+
+    <!-- Daily Nutrition Targets -->
+    <section class="summary">
+      <h3>Your Daily Nutrition Targets</h3>
+      <div class="nutrients-grid">
+        <div class="nutrient-card">
+          <h4>Calories</h4>
+          <p><span id="caloriesTarget"></span> kcal</p>
+        </div>
+        <div class="nutrient-card">
+          <h4>Protein</h4>
+          <p><span id="proteinTarget"></span> g</p>
+        </div>
+        <div class="nutrient-card">
+          <h4>Carbs</h4>
+          <p><span id="carbsTarget"></span> g</p>
+        </div>
+        <div class="nutrient-card">
+          <h4>Fats</h4>
+          <p><span id="fatsTarget"></span> g</p>
+        </div>
+      </div>
+    </section>
+
+
+
+      <!--Diet plate-->
+      <div class="plate-chart">
+        <figure class="highcharts-figure">
+          <div id="container"></div>
+          
+      </figure>
+      </div>
+
+
+
+<!-- Personalized Food Guidance -->
+<section class="food-guidance">
+  <h3>Personalized Food Guidance</h3>
+  <p class="subtitle">Based on your results, here’s what to eat more of and what to avoid:</p>
+  
+  <div class="guidance-grid">
+    <!-- Best Friends -->
+    <div class="guidance-card best-friends">
+      <h4>🥑 Your Best Friends</h4>
+      <ul id="bestFriendsList"></ul>
+    </div>
+
+    <!-- Sometimes Foods -->
+    <div class="guidance-card sometimes">
+      <h4>🍩 Sometimes Foods</h4>
+      <ul id="sometimesList"></ul>
+    </div>
+
+    <!-- Avoid These -->
+    <div class="guidance-card avoid">
+      <h4>❌ Avoid These</h4>
+      <ul id="avoidList"></ul>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Tips -->
+    <section class="nutrition-tips">
+      <h3> Additional Tips</h3>
+      <ul id="nutritionTips"></ul>
+    </section>
+
+    <!-- Weekly Plan -->
+    <section class="weekly-plan">
+      <h3>Weekly Suggestions</h3>
+      <p>Example meal plan for better balance.</p>
+      <ul>
+        <li>
+          <span class="day">Monday</span>
+          <div class="meals">🍳 Oats + Fruits | 🥗 Grilled Chicken + Veggies | 🍚 Brown Rice</div>
+        </li>
+        <li>
+          <span class="day">Tuesday</span>
+          <div class="meals">🥤 Smoothie | 🥙 Lentil Soup + Salad | 🐟 Fish + Quinoa</div>
+        </li>
+        <li>
+          <span class="day">Wednesday</span>
+          <div class="meals">🥚 Eggs + Toast | 🥗 Chickpea Salad | 🍛 Vegetable Curry + Rice</div>
+        </li>
+        <li>
+          <span class="day">Thursday</span>
+          <div class="meals">🥣 Yogurt + Berries | 🌯 Paneer Wrap | 🐟 Salmon + Sweet Potato</div>
+        </li>
+        <li>
+          <span class="day">Friday</span>
+          <div class="meals">🥭 Smoothie Bowl | 🍝 Grilled Veggie Pasta | 🍲 Chicken Soup</div>
+        </li>
+      </ul>
+    </section>
+
+
+    <a href="dashboard.html" class="back-btn">⬅ Back to Dashboard</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/themes/adaptive.js"></script>
+</body>
+</html>

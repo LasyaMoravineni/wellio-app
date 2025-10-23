@@ -1,0 +1,1822 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  padding-top: 65px; /* equal to navbar height */
+}
+
+body.home-page {
+  background-color: #c8e6c9;
+} 
+
+/* Navbar */
+/* === Navbar Fixes (consistent alignment & spacing) === */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  background: rgba(46, 125, 50, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 12px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* space logo and menu/toggle */
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 30px;
+  gap: 80px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;       /* space between logo and text */
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 40px;
+}
+
+.logo-icon {
+  width: 30px;     /* adjust as needed */
+  height: 30px;
+  object-fit: contain; /* optional, works with img tag */
+}
+
+/* Nav links */
+.nav-links {
+  flex: 0 1 auto;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #f9f9f9;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.nav-links a:hover {
+  color: #e8f5e9;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Underline fix */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #c8e6c9;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after {
+  width: 60%;
+}
+
+/* Active page highlight (optional) */
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #e8f5e9;
+}
+.menu-toggle{
+  display: none;
+}
+
+
+/* ✅ Responsive fix */
+@media (max-width: 920px) {
+  .navbar {
+    width: 90%;
+    top: 15px;
+    border-radius: 20px;
+    padding: 10px 18px;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  gap: 4px;
+  z-index: 2000; /* ✅ add this to bring it above */
+  position: relative; /* helps with stacking context */
+  }
+
+  .menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(46, 125, 50, 0.95);
+    border-radius: 15px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+
+  .nav-links.show {
+    max-height: fit-content;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+/* Hero Section */
+.hero {
+  background-color: #c8e6c9;
+  min-height: calc(100vh - 65px); /* full viewport minus navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* creates flexible spacing between h1, p, and button */
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.btn {
+  background: white;
+  color: #2e7d32;
+  padding: 20px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #2e7d32;
+  color: #ffff;
+}
+
+/* Overview Section */
+.overview {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.overview h2 {
+  margin-bottom: 50px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1b5e20;
+  letter-spacing: 0.5px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.overview-item {
+  background: linear-gradient(145deg, #e8f5e9, #ffffff);
+  padding: 30px 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: default;
+}
+
+.overview-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.overview-item h3 {
+  margin-bottom: 12px;
+  color: #2e7d32;
+  font-size: 1.3rem;
+}
+
+.overview-item p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Testimonials  Carousel */
+.testimonials-carousel {
+  background: linear-gradient(180deg, #f0f4f1, #ffffff);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2e7d32;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.testimonials-carousel h2 {
+  margin-bottom: 40px;
+  font-size: 2.4rem;
+  color: #1b5e20;
+  font-weight: 700;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 720px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+  animation: fade 0.8s ease-in-out;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+blockquote {
+  background: #ffffff;
+  padding: 25px 30px 30px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  font-style: italic;
+  font-size: 1rem;
+  color: #333;
+  transition: transform 0.4s;
+  text-align: left;
+}
+
+blockquote:hover {
+  transform: translateY(-5px);
+}
+
+blockquote footer {
+  margin-top: 15px;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.carousel-controls {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.carousel-controls button {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.carousel-controls button:hover {
+  background: #1b5e20;
+  transform: scale(1.1);
+}
+
+/* Fade animation */
+@keyframes fade {
+  from { opacity: 0.3; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+/* Footer */
+.footer {
+  background: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Assessment Section */
+.assessment-section {
+  max-width: 750px;
+  margin: 90px auto 50px; /* top margin adjusted for navbar */
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+.assessment-section h1 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+fieldset {
+  border: none;
+  display: none;
+  /* animation: fadeIn 0.4s ease-in-out; */
+}
+
+fieldset.active {
+  display: block;
+}
+
+legend {
+  font-weight: 600;
+  color: #1b5e20;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="range"],
+#gender {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2e7d32;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+
+
+button {
+  background: #2e7d32;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #1b5e20;
+  transform: scale(1.05);
+}
+
+.calc-btn {
+  display: block;
+  margin: 10px auto;
+  background: #388e3c;
+  font-size: 0.95rem;
+}
+
+.calc-btn:hover {
+  background: #2e7d32;
+}
+
+/* BMI and Body Composition Result */
+#bmiResult, #bodyFatResult, #visceralFatResult {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #2e7d32;
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+#bmiResult.error {
+  color: red;
+  background: #ffebee;
+}
+
+#compositionResults p{
+margin: 15px;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 20px;
+  margin-top: 35px;
+}
+
+.progress-bar {
+  height: 15px;
+  width: 0%;
+  background: #2e7d32;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+
+/* -------------------- Hero Section -------------------- */
+.resources-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+  margin: 60px auto 40px;
+}
+
+.resources-subtitle{
+  font-size: 15px;
+}
+
+.resources-page{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.resources-hero .section-tag {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.filter-chips {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 8px 16px;
+  background: #f0f2f5;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chip.active, .chip:hover {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* -------------------- Grid -------------------- */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.resource-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.resource-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.resource-content {
+  padding: 20px;
+}
+
+.resource-content h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.resource-content p {
+  margin: 0 0 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* -------------------- Meta Info -------------------- */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.meta img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.meta .date {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Highlight featured */
+.featured {
+  border: 2px solid #2e7d32;
+}
+
+.confirmation-box {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background: #fff;
+  /* extra top padding so the close button doesn't overlap the content */
+  padding: 18px 20px;
+  padding-top: 52px;            /* <-- space for the close button */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  z-index: 2000;
+  max-width: 380px;
+  width: 90%;
+}
+
+/* Confirmation text */
+.confirmation-box p {
+  font-size: 1.05rem;
+  color: #2e7d32;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+/* Dashboard button */
+.go-dashboard-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.25s ease;
+  margin-bottom: 20px;
+}
+.go-dashboard-btn:hover { background: #276b2a; }
+
+/* Close button (small square in top-right) */
+.confirmation-box .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;     /* override global button hover bg */
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  transition: 0.12s ease, color 0.12s ease;
+  z-index: 2001;
+  line-height: 1;
+}
+
+/* Hover / focus for close button (override global green hover) */
+.confirmation-box .close-btn:hover,
+.confirmation-box .close-btn:focus {
+  background: rgba(0,0,0,0.06);
+  color: #000;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Small accessibility focus ring */
+.confirmation-box .close-btn:focus-visible {
+  box-shadow: 0 0 0 4px rgba(66,165,245,0.18);
+}
+
+
+/* Overlay behind confirmation box */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);  /* semi-transparent grey/black */
+  z-index: 1999;                /* just below the box */
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -30%); }
+}
+
+
+/* Dashboard Section */
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1100px;
+  /* margin: 80px auto; */
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-section h1 {
+  text-align: center;
+  font-size: 2rem;
+
+}
+
+.dashboard-header{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.user-info-card {
+  background: #e8f5e9;
+  border-radius: 12px;
+  padding: 15px 25px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.user-info-card h3 {
+  color: #2e7d32;
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+
+.summary {
+  background: #f9f9f9;
+  border-left: 5px solid #2e7d32;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.highlight {
+  background: #e8f5e9;
+  border: 2px solid #2e7d32;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.card small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Health Rating Bar */
+.progress {
+  background: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #42a5f5, #66bb6a);
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Charts layout */
+.charts-section {
+  margin-bottom: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px;
+}
+
+.charts-title {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+}
+
+/* grid for charts */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+#bmiDonut{
+  max-width: fit-content;
+}
+
+/* card wrapper for each chart (controls sizing & padding) */
+.chart-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 300px;
+}
+
+/* small label above each chart */
+.chart-label {
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* force canvas size so Chart.js respects it with maintainAspectRatio:false */
+.chart-card canvas {
+  width: 100% !important;
+  height: 400px !important;   /* adjust height as needed */
+  display: block;
+  margin: 20px;
+}
+
+
+
+/* Health Tips Section */
+.tips {
+  background: #f5f5f5;
+  border-left: 5px solid #2e7d32;
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.tips h2 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.tips ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.tips ul li {
+  margin: 8px 0;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #444;
+  position: relative;
+  padding-left: 15px;
+}
+
+.tips ul li::before {
+  content: "✔"; /* Checkmark for each tip */
+  position: absolute;
+  left: 0;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .tips {
+    padding: 15px 20px;
+  }
+
+  .tips h2 {
+    font-size: 1.4rem;
+  }
+
+  .tips ul li {
+    font-size: 0.95rem;
+  }
+}
+
+    /* -------------------- Nutrition Page -------------------- */
+    .nutrition-page, .progress-page { display: flex; flex-direction: column; gap:50px; max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    .nutrition-header, .progress-header{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .progress-header, .dashboard-subtitle{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .nutrition-subtitle { color: #555; margin-bottom: 30px; font-size: 15px; }
+
+    /* -------------------- Targets Grid -------------------- */
+    .summary{display: flex; flex-direction: column; gap: 20px; }
+    .nutrients-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 20px; margin-bottom: 50px; }
+    .nutrient-card { background: #fff; padding: 25px 20px; border-radius: 15px; text-align: center; box-shadow: 0 8px 16px rgba(0,0,0,0.08); transition: 0.3s; }
+    .nutrient-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.12); }
+    .nutrient-card h4 { margin-bottom: 15px; font-size: 18px; }
+    .nutrient-card p { font-size: 20px; font-weight: 500; color: #2e7d32; }
+
+
+    /* <!--Diet plate--> */
+    .plate-chart{
+      margin: 30px;
+    }
+
+
+    /* -------------------- Checklist -------------------- */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background: linear-gradient(135deg, #e3fdfd, #ffe6fa);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+
+}
+.checklist p{
+  text-align: center;
+  font-size: 15px;
+}
+
+.checklist h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.progress-container {
+  background: #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 14px;
+  margin: 0 0 8px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #42a5f5, #66bb6a);
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.checklist ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 12px 15px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.checklist li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.checklist input {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  accent-color: #42a5f5;
+  cursor: pointer;
+}
+
+.checklist label {
+  cursor: pointer;
+  font-weight: 500;
+  color: #34495e;
+  font-size: 0.95rem;
+}
+
+/* -------------------- Food Guidance -------------------- */
+.food-guidance {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.food-guidance .subtitle {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.guidance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.guidance-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guidance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.guidance-card h4 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.guidance-card ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.guidance-card li {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* Color Themes */
+.best-friends {
+  border-left: 6px solid #2e7d32;
+}
+.best-friends li {
+  background: #e8f5e9;
+}
+
+.sometimes {
+  border-left: 6px solid #ff9800;
+}
+.sometimes li {
+  background: #fff3e0;
+}
+
+.avoid {
+  border-left: 6px solid #d32f2f;
+}
+.avoid li {
+  background: #ffebee;
+}
+
+
+    /* -------------------- Nutrition Tips -------------------- */
+.nutrition-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #f0f8ff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+
+#nutritionTips{
+  list-style: none;
+  font-size: 15px;
+}
+
+#nutritionTips li{
+  margin: 8px 0;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #444;
+  position: relative;
+  padding-left: 15px;
+  
+}
+
+#nutritionTips li::before{
+  content: "✔"; /* Checkmark for each tip */
+  position: absolute;
+  left: 0;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+
+
+    /* -------------------- Weekly Plan -------------------- */
+      .weekly-plan {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .weekly-plan h3 {
+        font-size: 1.4rem;
+        color: black;
+      }
+
+      .weekly-plan p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .weekly-plan ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+      }
+
+      .weekly-plan li {
+        background: linear-gradient(135deg, #ffffff, #f9f9f9);
+        border-radius: 12px;
+        padding: 12px 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .weekly-plan li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      }
+
+      .weekly-plan .day {
+        background: #2e7d32;
+        color: #fff;
+        font-weight: bold;
+        padding: 4px 10px;
+        border-radius: 20px;
+        align-self: flex-start;
+        font-size: 0.85rem;
+      }
+
+      .weekly-plan .meals {
+        font-size: 0.9rem;
+        color: #444;
+        line-height: 1.4;
+      }
+
+    /* -------------------- Back Button -------------------- */
+    .back-btn { display: inline-block;max-width: fit-content; margin-top: 30px; text-decoration: none; background: #2e7d32; color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: 500; transition: 0.3s; }
+    .back-btn:hover { background: #2e7d32; }
+
+    @media (max-width: 600px) {
+      .plate { grid-template-columns: repeat(2, 100px); grid-template-rows: repeat(2, 100px); }
+      .nutrient-card p { font-size: 18px; }
+    }
+
+    .goto-btn { display: inline-block; max-width: fit-content;margin-top: 50px; text-decoration: none; background: #2e7d32; color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: 500; transition: 0.3s; }
+    .goto-btn:hover { background: #2e7d32; }
+
+
+.progress-page {
+  max-width: 1100px;
+  padding: 20px;
+}
+
+.progress-header h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Progress Chart Section */
+.progress-chart-section {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+}
+
+.progress-chart-section h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+#progressChart {
+  width: 100% !important;
+  max-width: 800px;
+  height: 350px !important;
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* Insights Container */
+.insights-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* Trend Insights */
+.trend-insights, .averages-streaks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.trend-insights span, .averages-streaks span {
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Arrows */
+.trend-insights b {
+  font-size: 1.1rem;
+}
+
+
+/* Progress Table */
+.progress-table-container {
+  margin: 30px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.progress-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.progress-table th,
+.progress-table td {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+}
+
+.progress-table th {
+  background: #f7f7f7;
+  font-weight: 600;
+}
+
+.progress-table tr.healthy td {
+  background: #e8f5e9; /* light green */
+}
+
+.progress-table tr.risky td {
+  background: #fff8e1; /* light yellow */
+}
+
+.progress-table tr.very-risky td {
+  background: #ffebee; /* light pink */
+}
+
+.progress-table tr.extreme td {
+  background: #ffebee; /* darker risk */
+}
+
+.note-input {
+  width: 90%;
+  padding: 6px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.weekly-progress{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px;
+}
+
+.weekly-progress h4, .wellness-journey h4{
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.achievements { background:white; padding:20px; border-radius:10px; margin-bottom:20px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+
+.achievements h4{
+  margin: 15px;
+}
+ul { list-style:none; padding:0; }
+
+li { margin:10px 0; }
+.badge-container { display:flex; gap:10px; flex-wrap:wrap; }
+.badge { background:#e0f2f1; color:#00796b; padding:10px 15px; border-radius:20px; font-weight:bold; }
+
+.progress-rings {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 20px 0;
+  }
+  .progress-rings h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+  .rings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+  .ring {
+    text-align: center;
+  }
+  .ring canvas {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  .ring p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+
+  .goals-dashboard {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 20px 0;
+  }
+
+  .goals-dashboard h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .add-goal-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .add-goal-form input, 
+  .add-goal-form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  #addGoalBtn {
+    background: #42a5f5;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  #addGoalBtn:hover {
+    background: #1e88e5;
+  }
+
+  .goals-list {
+    display: grid;
+    gap: 15px;
+  }
+
+  .goal-card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .goal-card h5 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .goal-card p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #444;
+  }
+
+  .progress-container {
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 12px;
+    margin: 8px 0;
+  }
+
+  .progress-bar {
+    background: #4caf50;
+    height: 100%;
+    transition: width 0.4s ease;
+  }
+
+  .progress-text {
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  .updateValue {
+    margin-top: 8px;
+    padding: 6px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .updateBtn {
+    background: #4caf50;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: white;
+    font-size: 0.85rem;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .updateBtn:hover {
+    background: #45a049;
+  }
+
+
+
+   .mood-journal {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 20px 0;
+  }
+
+  .mood-journal h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .mood-picker {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+
+  .mood-btn {
+    font-size: 1.5rem;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, 0.2s;
+  }
+
+  .mood-btn:hover {
+    background: #e0e0e0;
+    transform: scale(1.1);
+  }
+
+  .mood-btn.selected {
+    background: #4caf50;
+    color: white;
+    transform: scale(1.2);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    resize: vertical;
+  }
+
+  #saveEntryBtn {
+    background: #42a5f5;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .journal-entries {
+    margin-top: 20px;
+  }
+
+  .journal-entries h5 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #444;
+  }
+
+  #entriesList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .entry-card {
+    display: flex;
+    gap: 12px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 10px;
+    align-items: center;
+  }
+
+  .entry-mood {
+    font-size: 1.6rem;
+  }
+
+  .entry-details {
+    flex: 1;
+  }
+
+  .entry-text {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  .entry-date {
+    font-size: 0.8rem;
+    color: #777;
+  }
+
+
+  .challenges {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 20px 0;
+  }
+
+  .challenges h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .challenge-list {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .challenge-card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+
+  .challenge-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .challenge-card h5 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .challenge-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0 0 10px;
+  }
+
+  .join-btn {
+    background: #4caf50;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
+  }
+
+  .join-btn:hover {
+    background: #45a049;
+  }
+
+  .join-btn.joined {
+    background: #999;
+    cursor: not-allowed;
+  }
+
+  .achievements h5 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #444;
+  }
+
+  .badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: #42a5f5;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+
+  .progress-report {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 20px 0;
+  }
+
+  .progress-report h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .progress-report p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  #generateReportBtn, #downloadReportBtn {
+    background: #42a5f5;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+
+  #generateReportBtn:hover, #downloadReportBtn:hover {
+    background: #1e88e5;
+  }
+
+  .report-preview {
+    background: #fafafa;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .report-preview h5 {
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+
+  .report-preview ul {
+    list-style: disc;
+    margin: 10px 0 0 20px;
+    padding: 0;
+  }
+
+  .report-preview li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #444;
+  }
+
+
+/* today's progress circle
+Sleep, Food, Exercise, Walks
+Calorie count
+Enroll in challenges
+Today's tasks
+https://dribbble.com/shots/26149967-Empowering-Health-Care-Mobile-App
+https://dribbble.com/shots/26104929-FitStep-Smart-Fitness-Tracking-App
+https://dribbble.com/shots/16588193-Habits-App
+
+
+Update progress page to user's data 
+*/

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wellness Progress</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.ico" alt="Wellio Logo" class="logo-icon">
+        Wellio
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+<div class="progress-page">
+
+     <!-- Header -->
+    <div class="progress-header">
+        <h1>Your progress</h1>
+        <p class="resources-subtitle">
+      Track your progress here everyday.
+      </p>
+    </div>
+
+      <!-- Daily Essentials Checklist -->
+    <section class="checklist">
+      <h4>🌟 Your Daily Wellness Wins</h4>
+      <p>Maintain your streak here everyday to earn badges!</p>
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p class="progress-text" id="progressText">0 / 4 completed</p>
+      <ul>
+        <li>
+          <input type="checkbox" id="water">
+          <label for="water">8 Glasses of water💧</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sleep">
+          <label for="sleep">8–9 Hours sleep😴</label>
+        </li>
+        <li>
+          <input type="checkbox" id="fruit">
+          <label for="fruit">Eat 1 Fruit 🍎</label>
+        </li>
+        <li>
+          <input type="checkbox" id="walk">
+          <label for="walk">Take a Short Walk 🚶</label>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- Progress Rings Section -->
+    <section class="progress-rings">
+      <h4>🎯 Your Daily Progress</h4>
+      <div class="rings-container">
+        <div class="ring">
+          <canvas id="hydrationRing"></canvas>
+          <p>Hydration</p>
+        </div>
+        <div class="ring">
+          <canvas id="sleepRing"></canvas>
+          <p>Sleep</p>
+        </div>
+        <div class="ring">
+          <canvas id="exerciseRing"></canvas>
+          <p>Exercise</p>
+        </div>
+        <div class="ring">
+          <canvas id="nutritionRing"></canvas>
+          <p>Nutrition</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Weekly Progress Chart -->
+    <section class="weekly-progress">
+      <h4>📈 Weekly Progress</h4>
+      <canvas id="weeklyChart" height="400"></canvas>
+    </section>
+
+    <!-- Goal Setting & Tracking Section -->
+    <section class="goals-dashboard">
+      <h4>🎯 Your Goals</h4>
+
+      <!-- Add Goal Form -->
+      <div class="add-goal-form">
+        <input type="text" id="goalName" placeholder="Goal (e.g., Lose 5kg)">
+        <input type="number" id="currentValue" placeholder="Current (e.g., 70)">
+        <input type="number" id="targetValue" placeholder="Target (e.g., 65)">
+        <input type="date" id="deadline">
+        <button id="addGoalBtn">Add Goal</button>
+      </div>
+
+      <!-- Goals List -->
+      <div id="goalsList" class="goals-list">
+        <p>No goals yet. Add one above 👆</p>
+      </div>
+    </section>
+
+
+    <!-- Mood & Journal Tracking Section -->
+    <section class="mood-journal">
+      <h4>🧘 Mood & Journal Tracking</h4>
+      <p>What's your mood today?</p>
+      <!-- Mood Picker -->
+      <div class="mood-picker">
+        
+        <button class="mood-btn" data-mood="😀">😀</button>
+        <button class="mood-btn" data-mood="🙂">🙂</button>
+        <button class="mood-btn" data-mood="😐">😐</button>
+        <button class="mood-btn" data-mood="😔">😔</button>
+        <button class="mood-btn" data-mood="😡">😡</button>
+        <button class="mood-btn" data-mood="😴">😴</button>
+      </div>
+
+      <!-- Journal Input -->
+      <textarea id="journalInput" placeholder="It's always good to write down your thoughts. How do you feel today?"></textarea>
+      <button id="saveEntryBtn">Save Entry</button>
+
+      <!-- Past Entries -->
+      <div class="journal-entries">
+        <h5>📅 Past Entries</h5>
+        <ul id="entriesList">
+          <!-- Entries will appear here -->
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- Challenges & Achievements Section -->
+    <section class="challenges">
+      <h4>🎯 Challenges & Achievements</h4>
+
+      <!-- Suggested Challenges -->
+      <div class="challenge-list">
+        <div class="challenge-card">
+          <h5>🧘 30-Day Yoga Challenge</h5>
+          <p>Boost flexibility, strength & mindfulness with daily yoga.</p>
+          <button class="join-btn" data-challenge="30-Day Yoga Challenge 🧘">Start</button>
+        </div>
+        <div class="challenge-card">
+          <h5>💧 Hydration Champion</h5>
+          <p>Stay energized by drinking enough water every day.</p>
+          <button class="join-btn" data-challenge="Hydration Champion 💧">Start</button>
+        </div>
+        <div class="challenge-card">
+          <h5>🚶 Daily Walk Streak</h5>
+          <p>Maintain a daily walk habit to improve endurance.</p>
+          <button class="join-btn" data-challenge="Daily Walk Streak 🚶">Start</button>
+        </div>
+      </div>
+
+      <!-- Achievements Section -->
+      <div class="achievements">
+        <h5>🏆 Your Achievements</h5>
+        <div id="achievementBadges" class="badges">
+          <p>No achievements yet. Join a challenge to get started!</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Progress Report Section -->
+    <section class="progress-report">
+      <h4>📄 Generate Detailed Progress Report</h4>
+      <p>Download a summary of your wellness journey including habits, goals, mood, and achievements.</p>
+      <button id="generateReportBtn">Generate Report</button>
+
+      <!-- Report Preview -->
+      <div id="reportPreview" class="report-preview" style="display:none;">
+        <h5>📊 Wellness Progress Report</h5>
+        <p><strong>Date:</strong> <span id="reportDate"></span></p>
+
+        <ul id="reportList">
+          <!-- <li><strong>Checklist Completion:</strong> 75% (Avg)</li>
+          <li><strong>Goals Achieved:</strong> 2 / 5</li>
+          <li><strong>Recent Mood Trend:</strong> 😀 🙂 😐</li>
+          <li><strong>Challenges Joined:</strong> Yoga, Hydration</li> -->
+        </ul>
+
+        <button id="downloadReportBtn">Download as PDF</button>
+      </div>
+    </section>
+
+
+
+    
+    <!-- Wellness Journey Timeline -->
+    <!-- <section class="wellness-journey">
+      <h4>🛤️Your Wellness Journey</h4>
+      <canvas id="journeyChart" height="200"></canvas>
+    </section> -->
+
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

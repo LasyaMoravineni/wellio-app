@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness App - Results Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.ico" alt="Wellio Logo" class="logo-icon">
+        Wellio
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  
+<div class="nutrition-page">
+  <section class="dashboard-section">
+    <div class="dashboard-header">
+      <h1>Your Results</h1>
+      <p class="dashboard-subtitle">A quick overview of your health insights based on your latest assessment.</p>
+  </div>
+
+  <!-- Personalized Summary -->
+  <div class="summary">
+    <h2>Summary</h2>
+    <p id="summaryText">Loading your personalized results...</p>
+  </div>
+
+<!-- USER INFO -->
+  <div class="user-info-card">
+    <h3><span id="userName">--</span></h3>
+    <p>Age: <span id="userAge">--</span></p>
+  </div>
+
+  <!-- SUMMARY CARDS -->
+  <div class="card-container">
+    <div class="card highlight">
+      <h3>BMI</h3>
+      <p id="bmiValue">--</p>
+      <small id="bmiCategory">--</small>
+    </div>
+
+    <div class="card">
+      <h3>Body Fat %</h3>
+      <p id="bodyFatValue">--</p>
+    </div>
+
+    <div class="card">
+      <h3>Visceral Fat</h3>
+      <p id="visceralFatValue">--</p>
+    </div>
+
+    <div class="card">
+      <h3>Health Rating</h3>
+      <p id="dashboardRating">--</p>
+      <div class="progress">
+        <div class="progress-bar" id="ratingBar"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Breakfast Habit</h3>
+      <p id="breakfastValue">--</p>
+    </div>
+
+    <div class="card">
+      <h3>Health Satisfaction</h3>
+      <p id="satisfactionValue">--</p>
+    </div>
+
+    <div class="card">
+      <h3>Wellness Score</h3>
+      <p id="wellnessScore">--</p>
+      <div class="progress">
+        <div class="progress-bar" id="wellnessBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="charts-section">
+    <h2 class="charts-title">Health Visualizations</h2>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3 class="chart-label">BMI Category</h3>
+        <canvas id="bmiDonut"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3 class="chart-label">Key Health Metrics</h3>
+        <canvas id="healthChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Health Tips -->
+  <div class="tips">
+    <h2> Health Tips</h2>
+    <p id="healthTip">--</p>
+  </div>
+  <a href="nutrition.html" class="goto-btn">View detailed Nutrition Plan</a>
+</section>
+
+    
+
+
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
